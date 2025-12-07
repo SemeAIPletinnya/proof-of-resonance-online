@@ -9,21 +9,21 @@
 ---
 
 ## 🚀 Overview  
-**Proof-of-Resonance (PoR)** — це новий обчислювальний підхід, що оперує не через помилку (loss), а через **резонансну оптимізацію**.  
-Система еволюціонує у напрямку:
+Proof-of-Resonance (PoR) is a novel computational approach that does not rely on traditional loss minimization.
+Instead, it operates through resonance optimization, where systems evolve toward:
 
-- низького шуму  
-- високої стабільності  
-- гармонійної фазової узгодженості  
+low noise
 
-PoR Engine вже містить повний цикл: конфігурацію, метрики, фазове вирівнювання та ітеративну симуляцію.
+high stability
 
----
+harmonic phase alignment
 
-## 📦 Installation  
-PoR буде доступний як пакет (`pip install por-core`), а поки — локально:
+The PoR Engine already includes the full computational cycle: configuration, metrics, phase-locking, and iterative simulation.
 
-```bash
+📦 Installation
+
+PoR will soon be available as a Python package (pip install por-core).
+For now, you can install it locally:
 git clone https://github.com/SemeAIPletinnya/proof-of-resonance-online
 cd proof-of-resonance-online
 pip install -r requirements.txt
