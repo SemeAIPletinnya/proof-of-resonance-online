@@ -59,5 +59,3 @@ Initial chain sample: [0.91, -1.03, 0.22, ...]
 Final chain sample:   [0.11, 0.12, 0.10, ...]
 Stability: 0.982  
 Coherence: 0.913
-examples/run_synthetic_chain.py
-examples/climate_chain_demo.md
