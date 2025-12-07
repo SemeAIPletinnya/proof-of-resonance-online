@@ -1,10 +1,10 @@
 # 🔷 Proof-of-Resonance (PoR) Framework  
 *A computational engine for stability, coherence, and harmonic alignment in iterative systems.*
 
-[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)]()
-[![Resonance Certified](https://img.shields.io/badge/PoR-Certified-Verified-Core-Engine-purple.svg)]()
-[![Build](https://img.shields.io/badge/Build-Status-Stable-brightgreen.svg)]()
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Resonance Certified](https://img.shields.io/badge/PoR-Certified--Verified--Core--Engine-purple.svg)
+![Build](https://img.shields.io/badge/Build-Status--Stable-brightgreen.svg)
 
 ---
 
