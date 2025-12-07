@@ -1,61 +1,40 @@
-"""
-PoR Simulation Engine
-Handles long-chain iterative resonance simulations using the core modules.
-"""
+# por_core/simulator.py
 
 import numpy as np
-from .config import get_config
+from .config import PoRConfig
 from .metrics import stability_score, coherence
-from .phase_lock import phase_lock_step
-
+from .phase_lock import phase_lock
 
 class ResonanceSimulator:
     """
-    Main engine for running Proof-of-Resonance simulations.
+    Full PoR engine:
+      - initializes chain
+      - performs iterative simulation
+      - applies noise + phase alignment
+      - tracks stability & coherence over time
     """
 
-    def __init__(self, chain_length=None, config=None):
-        self.config = config or get_config()
-        self.chain_length = chain_length or self.config["chain_length"]
-
-        # Initialize random phases
-        self.chain = np.random.uniform(-np.pi, np.pi, size=self.chain_length)
-
-        self.history = []
+    def __init__(self, chain_length: int = 64):
+        self.config = PoRConfig(chain_length=chain_length)
+        self.chain = np.random.uniform(-1, 1, chain_length)
 
     def step(self):
-        """
-        Performs one resonance update step using the phase-locking function.
-        """
-        self.chain = phase_lock_step(
-            self.chain,
-            tolerance=self.config["phase_lock_tolerance"]
-        )
+        """Single simulation step."""
+        # noise injection
+        noise = np.random.normal(0, self.config.noise_level, len(self.chain))
+        self.chain += noise
 
-        self.history.append(self.chain.copy())
+        # phase alignment
+        self.chain = phase_lock(self.chain, self.config.phase_strength)
 
-    def run(self, steps=50):
-        """
-        Run full simulation for N steps.
-        Returns stability, coherence, and chain history.
-        """
+    def run_iterations(self, steps: int = 200):
+        """Run simulation for N steps."""
         for _ in range(steps):
             self.step()
 
-        stab = stability_score(self.chain)
-        coh = coherence(self.chain)
-
+    def metrics(self):
+        """Return stability & coherence."""
         return {
-            "final_chain": self.chain,
-            "stability": stab,
-            "coherence": coh,
-            "history": np.array(self.history),
+            "stability": stability_score(self.chain),
+            "coherence": coherence(self.chain),
         }
-
-
-def run_default_simulation(steps=50):
-    """
-    Convenience wrapper for quick tests.
-    """
-    sim = ResonanceSimulator()
-    return sim.run(steps)
