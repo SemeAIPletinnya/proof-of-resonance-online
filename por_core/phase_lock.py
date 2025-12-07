@@ -1,40 +1,14 @@
-# por_core/simulator.py
+# por_core/phase_lock.py
 
 import numpy as np
-from .config import PoRConfig
-from .metrics import stability_score, coherence
-from .phase_lock import phase_lock
 
-class ResonanceSimulator:
+def phase_lock(chain: np.ndarray, strength: float) -> np.ndarray:
     """
-    Full PoR engine:
-      - initializes chain
-      - performs iterative simulation
-      - applies noise + phase alignment
-      - tracks stability & coherence over time
+    Performs harmonic phase alignment.
+    Moves values slightly toward local harmonic mean.
     """
-
-    def __init__(self, chain_length: int = 64):
-        self.config = PoRConfig(chain_length=chain_length)
-        self.chain = np.random.uniform(-1, 1, chain_length)
-
-    def step(self):
-        """Single simulation step."""
-        # noise injection
-        noise = np.random.normal(0, self.config.noise_level, len(self.chain))
-        self.chain += noise
-
-        # phase alignment
-        self.chain = phase_lock(self.chain, self.config.phase_strength)
-
-    def run_iterations(self, steps: int = 200):
-        """Run simulation for N steps."""
-        for _ in range(steps):
-            self.step()
-
-    def metrics(self):
-        """Return stability & coherence."""
-        return {
-            "stability": stability_score(self.chain),
-            "coherence": coherence(self.chain),
-        }
+    new_chain = chain.copy()
+    for i in range(1, len(chain) - 1):
+        local_mean = (chain[i - 1] + chain[i] + chain[i + 1]) / 3
+        new_chain[i] = chain[i] + strength * (local_mean - chain[i])
+    return new_chain
