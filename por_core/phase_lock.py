@@ -1,44 +1,14 @@
-"""
-Phase-Locking Module
-Implements functions for phase adjustment and resonance-lock simulation.
-"""
+# por_core/phase_lock.py
 
 import numpy as np
 
-
-def normalize_phase(x):
+def phase_lock(chain: np.ndarray, strength: float) -> np.ndarray:
     """
-    Normalize a phase value into the range [-π, π].
+    Performs harmonic phase alignment.
+    Moves values slightly toward local harmonic mean.
     """
-    return float((x + np.pi) % (2 * np.pi) - np.pi)
-
-
-def phase_difference(a, b):
-    """
-    Compute the signed difference between two phases.
-    """
-    return normalize_phase(a - b)
-
-
-def phase_lock_step(chain, tolerance=0.02):
-    """
-    Performs one iteration of a phase-lock adjustment step.
-    Elements try to align with the mean phase.
-    """
-    if len(chain) == 0:
-        return chain
-
-    mean_phase = np.angle(np.mean(np.exp(1j * np.array(chain))))
-
-    new_chain = []
-    for x in chain:
-        diff = phase_difference(x, mean_phase)
-
-        # If difference is small enough → lock
-        if abs(diff) < tolerance:
-            new_chain.append(mean_phase)
-        else:
-            # Partial adjustment toward mean phase
-            new_chain.append(x - diff * 0.5)
-
-    return np.array(new_chain)
+    new_chain = chain.copy()
+    for i in range(1, len(chain) - 1):
+        local_mean = (chain[i - 1] + chain[i] + chain[i + 1]) / 3
+        new_chain[i] = chain[i] + strength * (local_mean - chain[i])
+    return new_chain
