@@ -1,186 +1,124 @@
-📘 Proof-of-Resonance (PoR) Framework
+# Proof-of-Resonance (PoR) Framework  
+*A computational engine for stability, coherence, and harmonic alignment in iterative systems.*
 
-A computational engine for stability, coherence, and harmonic alignment in iterative systems.
+![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Status](https://img.shields.io/badge/Status-Stable-brightgreen)
+![PoR](https://img.shields.io/badge/Resonance-Score%E2%84%A2-purple)
 
+---
 
+## 🌟 Overview
 
+**Proof-of-Resonance (PoR)** is a computational paradigm that does **not** use classic loss minimization.  
+Instead, PoR applies **resonance optimization**, where iterative systems evolve toward:
 
+- low noise  
+- high stability  
+- harmonic phase alignment  
 
+The PoR Engine includes the full computational cycle:  
+configuration → metrics → harmonic phase-locking → iterative simulation.
 
+PoR is designed for:
 
+- AI research  
+- dynamical systems  
+- climate & geophysical modeling  
+- ML training stability  
+- multi-agent coherence analysis  
 
-🌟 Overview
+---
 
-Proof-of-Resonance (PoR) is a novel computational paradigm that does not rely on traditional loss minimization.
-Instead, PoR operates through resonance optimization, where iterative systems evolve toward:
+## ⚙️ Installation
 
-low noise
-
-high stability
-
-harmonic phase alignment
-
-The PoR Engine already includes the full computational cycle:
-
-configuration
-
-stability & coherence metrics
-
-harmonic phase-locking
-
-full-chain iterative simulation
-
-PoR is designed for AI research, dynamical systems analysis, climate modeling, experimental ML training loops, and any domain requiring stability-driven optimization.
-
-📦 Installation
-
-PoR will soon be available as a Python package (pip install por-core).
-For now, you can install it locally:
-
+```bash
 git clone https://github.com/SemeAIPletinnya/proof-of-resonance-online
 cd proof-of-resonance-online
 pip install -r requirements.txt
-
-⚡ Quick Start — Run a Simulation
-
-This example runs a complete PoR simulation using the built-in synthetic chain.
-
 from por_core.simulator import ResonanceSimulator
+
+sim = ResonanceSimulator(chain_length=64)
+print("Initial chain sample:", sim.chain[:10], "…")
+sim.run_iterations(200)
+print("Final chain sample:", sim.chain[:10], "…")
 from por_core.metrics import stability_score, coherence
 
-# Initialize simulator
-sim = ResonanceSimulator(chain_length=64)
-
-print("Initial chain sample:", sim.chain[:10], "...")
-
-# Run 200 iterations
-sim.run_iterations(200)
-
-print("Final chain sample:", sim.chain[:10], "...")
-
-# Evaluate metrics
 print("Stability:", stability_score(sim.chain))
 print("Coherence:", coherence(sim.chain))
-
-
-Output example:
-
-Initial chain sample: [0.91, -1.03, 0.22, ...]
-Final chain sample:   [0.11,  0.12, 0.10, ...]
-Stability: 0.982
+Initial chain sample: [0.91, -1.03, 0.22, …]
+Final chain sample:   [0.11, 0.12, 0.10, …]
+Stability: 0.982  
 Coherence: 0.913
-
-🧠 Core Architecture
-
-The PoR engine consists of four core modules:
-
-1️⃣ config.py
-
-Defines global parameters and default engine settings.
-
-2️⃣ metrics.py
-
-Implements stability and harmonic coherence metrics.
-
-3️⃣ phase_lock.py
-
-Performs harmonic alignment and phase-locking steps across the chain.
-
-4️⃣ simulator.py
-
-Runs full iterative PoR simulations.
-
-📂 Project Structure
 proof-of-resonance-online/
 │
 ├─ por_core/
-│   ├─ __init__.py
-│   ├─ config.py
-│   ├─ metrics.py
-│   ├─ phase_lock.py
-│   └─ simulator.py
+│  ├─ __init__.py
+│  ├─ config.py
+│  ├─ metrics.py
+│  ├─ phase_lock.py
+│  └─ simulator.py
 │
 ├─ examples/
-│   ├─ run_synthetic_chain.py
-│   └─ climate_chain_demo.md
+│  ├─ run_synthetic_chain.py
+│  └─ climate_chain_demo.md
 │
 ├─ docs/
-│   ├─ theory_overview.md
-│   └─ roadmap.md
+│  ├─ theory_overview.md
+│  └─ roadmap.md
 │
 ├─ README.md
 └─ requirements.txt
-
-📘 Examples
-▶️ Synthetic Chain Simulation
+🧪 Examples
+🔹 Synthetic Chain Simulation
 
 examples/run_synthetic_chain.py
-A complete demonstration using random initial conditions.
 
-🌍 Climate Chain Demo
+🔹 Climate Chain Demo
 
 examples/climate_chain_demo.md
-Shows how PoR can model quasi-real environmental signals and long-range dependencies.
 
-📑 Documentation
-
-Full documentation is available in:
+📚 Documentation
 
 docs/theory_overview.md — theoretical foundations
 
-docs/roadmap.md — project roadmap, milestones, and future expansions
+docs/roadmap.md — roadmap & milestones
 
-🗺️ Roadmap
-✅ v0.1 — Core Engine (Completed)
+🚀 Roadmap
+v0.1 — Core Engine (Done)
 
 PoR configuration
 
-Stability & coherence metrics
+Metrics
 
-Harmonic phase-locking
+Phase-locking
 
-Full iterative simulation engine
+Simulation engine
 
-Examples & docs
+Examples + docs
 
-🟦 v0.2 — API Expansion (Next)
+v0.2 — API Expansion
 
-Public-facing Python API
+Public API
 
-.fit() / .run() interface
+Visualization tools
 
-Better visualization
+Benchmark suite
 
-Micro-benchmarking suite
+v0.3 — Integrations
 
-🟥 v0.3 — Domain Integrations
+Climate & geophysics
 
-Climate & geophysical modeling
+Finance & markets
 
-Financial time-series resonance maps
+Neural chain stabilization
 
-Neural chain stabilization experiments
-
-Multi-agent alignment via PoR metrics
+Multi-agent PoR metrics
 
 🤝 Contributing
 
-Contributions, suggestions, and experiments using PoR are welcome.
-If you build something using resonance optimization — let us know!
+Contributions, experiments, and ideas are welcome.
 
-📄 License
+📜 License
 
 MIT License © 2025 — SemeAIPletinnya
-
-🚀 Final Notes
-
-PoR is designed as a new computation principle — not a variation of loss-based training, but a stability-first optimization framework.
-Its goal is to become a foundational tool for researchers exploring:
-
-emergent dynamics
-
-phase coherence
-
-stability-driven learning
-
-harmonic energy alignment in AI systems
