@@ -1,0 +1,35 @@
+name: PoR CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run PoR test simulation
+      run: |
+        python - << 'EOF'
+from por_core.simulator import ResonanceSimulator
+from por_core.metrics import stability_score, coherence
+
+sim = ResonanceSimulator(chain_length=64)
+sim.run_iterations(150)
+
+print("Stability:", stability_score(sim.chain))
+print("Coherence:", coherence(sim.chain))
+EOF
