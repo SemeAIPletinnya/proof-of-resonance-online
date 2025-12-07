@@ -12,18 +12,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Set up Python 3.11
+    - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: "3.11"
 
     - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+      run: pip install -r requirements.txt
 
-    - name: Run PoR test simulation
+    - name: Run PoR simulation test
       run: |
-        python - << 'EOF'
+        python - <<EOF
 from por_core.simulator import ResonanceSimulator
 from por_core.metrics import stability_score, coherence
 
