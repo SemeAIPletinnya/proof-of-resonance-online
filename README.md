@@ -50,22 +50,3 @@ Initial chain sample: [0.91, -1.03, 0.22, …]
 Final chain sample:   [0.11, 0.12, 0.10, …]
 Stability: 0.982  
 Coherence: 0.913
-proof-of-resonance-online/
-│
-├─ por_core/
-│  ├─ __init__.py
-│  ├─ config.py
-│  ├─ metrics.py
-│  ├─ phase_lock.py
-│  └─ simulator.py
-│
-├─ examples/
-│  ├─ run_synthetic_chain.py
-│  └─ climate_chain_demo.md
-│
-├─ docs/
-│  ├─ theory_overview.md
-│  └─ roadmap.md
-│
-├─ README.md
-└─ requirements.txt
