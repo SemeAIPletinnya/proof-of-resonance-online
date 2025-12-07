@@ -1,15 +1,16 @@
-"""
-PoR Engine Configuration
-Defines global parameters and defaults for the Proof-of-Resonance system.
-"""
+# por_core/config.py
 
-DEFAULT_SETTINGS = {
-    "sampling_rate": 128,
-    "chain_length": 64,
-    "stability_threshold": 0.92,
-    "phase_lock_tolerance": 0.015,
-}
+class PoRConfig:
+    """
+    Global parameters for PoR engine.
+    """
 
-def get_config():
-    """Return a copy of the default PoR configuration."""
-    return DEFAULT_SETTINGS.copy()
+    def __init__(
+        self,
+        chain_length: int = 64,
+        noise_level: float = 0.03,
+        phase_strength: float = 0.15,
+    ):
+        self.chain_length = chain_length
+        self.noise_level = noise_level
+        self.phase_strength = phase_strength
