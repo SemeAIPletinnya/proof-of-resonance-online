@@ -43,19 +43,3 @@ For now, install locally:
 git clone https://github.com/SemeAIPletinnya/proof-of-resonance-online
 cd proof-of-resonance-online
 pip install -r requirements.txt
-from por_core.simulator import ResonanceSimulator
-from por_core.metrics import stability_score, coherence
-
-sim = ResonanceSimulator(chain_length=64)
-
-print("Initial chain sample:", sim.chain[:10], "...")
-
-sim.run_iterations(200)
-
-print("Final chain sample:", sim.chain[:10], "...")
-print("Stability:", stability_score(sim.chain))
-print("Coherence:", coherence(sim.chain))
-Initial chain sample: [0.91, -1.03, 0.22, ...]
-Final chain sample:   [0.11, 0.12, 0.10, ...]
-Stability: 0.982  
-Coherence: 0.913
