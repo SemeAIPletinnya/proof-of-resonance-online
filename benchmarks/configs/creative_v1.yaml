@@ -1,0 +1,29 @@
+track: "creative"
+dataset_path: "benchmarks/datasets/creative_tasks.jsonl"
+
+models:
+  solo:
+    - name: "gpt5"
+      provider: "openai"
+    - name: "llama3"
+      provider: "meta"
+  multi_pairs:
+    - ["gpt5", "llama3"]
+
+resonance:
+  steps: 6
+  max_tokens_per_turn: 768
+  temperature: 0.7
+
+metrics:
+  task:
+    type: "llm_judge_creativity"
+  harmonic:
+    use_por_core: true
+  drift:
+    type: "theme_drift"
+
+weights:
+  w1: 0.4
+  w2: 0.3
+  w3: 0.3
