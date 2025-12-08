@@ -23,12 +23,12 @@ jobs:
     - name: Run PoR simulation test
       run: |
         python << 'EOF'
-from por_core.simulator import ResonanceSimulator
-from por_core.metrics import stability_score, coherence
+        from por_core.simulator import ResonanceSimulator
+        from por_core.metrics import stability_score, coherence
 
-sim = ResonanceSimulator(chain_length=64)
-sim.run_iterations(150)
+        sim = ResonanceSimulator(chain_length=64)
+        sim.run_iterations(150)
 
-print("Stability:", stability_score(sim.chain))
-print("Coherence:", coherence(sim.chain))
-EOF
+        print("Stability:", stability_score(sim.chain))
+        print("Coherence:", coherence(sim.chain))
+        EOF
