@@ -75,6 +75,7 @@ Grok proposed a continuation step for validation:
 This matches the intended roadmap for synthetic and climate-based chain demonstrations.
 
 ---
+<img width="1233" height="1318" alt="image" src="https://github.com/user-attachments/assets/4d209785-2287-48d8-998c-85158aad183a" />
 
 ### 🧭 Interpretation
 
