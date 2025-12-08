@@ -1,0 +1,2 @@
+{"id": "reasoning_001", "track": "reasoning", "prompt": "You have 3 red apples and buy 4 more. Then you eat 2 apples. How many apples are left?", "reference_answer": "5"}
+{"id": "reasoning_002", "track": "reasoning", "prompt": "If all Bloops are Razzles, and some Razzles are Wimbos, is it necessarily true that some Bloops are Wimbos? Answer 'yes' or 'no' and explain.", "reference_answer": "no"}
