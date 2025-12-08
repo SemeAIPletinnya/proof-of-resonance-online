@@ -22,7 +22,7 @@ jobs:
 
     - name: Run PoR simulation test
       run: |
-        python - << 'EOF'
+        python << 'EOF'
 from por_core.simulator import ResonanceSimulator
 from por_core.metrics import stability_score, coherence
 
