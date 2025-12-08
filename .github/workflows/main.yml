@@ -4,10 +4,6 @@ on:
   push:
   pull_request:
 
-permissions:
-  id-token: write      
-  contents: read
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -50,8 +46,3 @@ jobs:
       with:
         name: por-report
         path: por_report.json
-
-    - name: Generate build provenance
-      uses: actions/attest-build-provenance@v1
-      with:
-        subject-path: "por_report.json"
