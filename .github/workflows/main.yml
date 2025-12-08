@@ -25,10 +25,29 @@ jobs:
         python << 'EOF'
         from por_core.simulator import ResonanceSimulator
         from por_core.metrics import stability_score, coherence
+        import json
 
         sim = ResonanceSimulator(chain_length=64)
         sim.run_iterations(150)
 
-        print("Stability:", stability_score(sim.chain))
-        print("Coherence:", coherence(sim.chain))
+        report = {
+            "stability": float(stability_score(sim.chain)),
+            "coherence": float(coherence(sim.chain)),
+        }
+
+        with open("por_report.json", "w") as f:
+            json.dump(report, f, indent=2)
+
+        print("Generated PoR Report:", report)
         EOF
+
+    - name: Upload PoR report artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: por-report
+        path: por_report.json
+
+    - name: Generate build provenance
+      uses: actions/attest-build-provenance@v1
+      with:
+        subject-path: "por_report.json"
