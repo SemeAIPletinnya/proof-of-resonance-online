@@ -1,0 +1,33 @@
+track: "reasoning"
+dataset_path: "benchmarks/datasets/reasoning_tasks.jsonl"
+
+models:
+  solo:
+    - name: "gpt5"
+      provider: "openai"
+    - name: "llama3"
+      provider: "meta"
+  multi_pairs:
+    - ["gpt5", "llama3"]
+
+resonance:
+  steps: 8
+  max_tokens_per_turn: 512
+  temperature: 0.4
+
+metrics:
+  task:
+    type: "accuracy"
+  harmonic:
+    use_por_core: true
+    metrics:
+      - "coherence_score"
+      - "phase_lock_score"
+  drift:
+    type: "semantic_drift"
+    window: 3
+
+weights:
+  w1: 0.4
+  w2: 0.3
+  w3: 0.3
