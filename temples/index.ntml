@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PoR Dashboard</title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; background: #050816; color: #f4f4f4; }
+    .container { max-width: 900px; margin: 40px auto; padding: 24px; background: #0b1120; border-radius: 16px; }
+    h1 { margin-top: 0; }
+    .row { display: flex; gap: 24px; flex-wrap: wrap; }
+    .card { flex: 1; min-width: 260px; padding: 16px; background: #020617; border-radius: 12px; }
+    label { display: block; margin-bottom: 4px; }
+    input { width: 100%; padding: 8px 10px; border-radius: 8px; border: 1px solid #1e293b; background: #020617; color: #e5e7eb; }
+    button { margin-top: 12px; padding: 10px 18px; border-radius: 999px; border: none; background: #22c55e; color: #020617; cursor: pointer; font-weight: 600; }
+    button:hover { background: #16a34a; }
+    .metrics { margin-top: 16px; font-size: 0.95rem; }
+    img { max-width: 100%; border-radius: 12px; margin-top: 12px; }
+    .subtitle { color: #9ca3af; font-size: 0.9rem; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Proof-of-Resonance Dashboard</h1>
+    <p class="subtitle">
+      Run PoR simulations, watch stability &amp; coherence, and explore long-chain resonance behaviour.
+    </p>
+
+    <form method="post" action="/run">
+      <div class="row">
+        <div class="card">
+          <h2>Simulation config</h2>
+          <label for="steps">Steps</label>
+          <input id="steps" name="steps" type="number" value="200" min="1" />
+          <label for="chain_length">Chain length</label>
+          <input id="chain_length" name="chain_length" type="number" value="64" min="2" />
+          <button type="submit">Run resonance</button>
+        </div>
+
+        <div class="card">
+          <h2>Metrics</h2>
+          {% if stability and coherence %}
+            <div class="metrics">
+              <div><strong>Stability:</strong> {{ stability }}</div>
+              <div><strong>Coherence:</strong> {{ coherence }}</div>
+            </div>
+          {% else %}
+            <div class="metrics">
+              Metrics will appear here after you run a simulation.
+            </div>
+          {% endif %}
+
+          <h3>PoR metrics over time</h3>
+          <img src="/static/4_por_metrics_over_time.png" alt="PoR metrics over time" />
+        </div>
+      </div>
+    </form>
+
+    <p style="margin-top:24px; font-size:0.8rem; color:#6b7280; text-align:center;">
+      Created by <strong>Anton Semenenko</strong> · SemeAI · “Systems that resonate remain stable.”
+    </p>
+  </div>
+</body>
+</html>
