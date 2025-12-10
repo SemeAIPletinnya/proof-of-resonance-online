@@ -1,126 +1,111 @@
 # 🔷 Proof-of-Resonance (PoR) Framework  
-*A computational engine for stability, coherence, and harmonic alignment in iterative and multimodal systems.*
+*A computational engine for stability, coherence, and harmonic alignment in iterative systems.*
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-![PoR Stability](https://img.shields.io/badge/PoR-Core_Stability-Verified-purple.svg)
+![PoR Stability](https://img.shields.io/badge/PoR-Stability_Validated-purple.svg)
 ![Status](https://img.shields.io/badge/Status-Stable-brightgreen.svg)
 
 ---
 
-## 🌟 Overview
+# 🌟 Overview
 
-**Proof-of-Resonance (PoR)** is a computational paradigm that does **not** rely on classical loss minimization.  
-Instead, PoR applies **resonance optimization**, where iterative systems evolve toward:
+**Proof-of-Resonance (PoR)** is a computational paradigm that replaces classical loss minimization with  
+**resonance optimization** — a process where systems evolve toward:
 
 - low noise  
 - high stability  
 - harmonic phase alignment  
 
-The PoR Engine implements:
+PoR provides a complete engine for:
 
-- configuration utilities  
-- stability & coherence metrics  
-- harmonic Δφ phase-locking  
-- full-chain iterative simulation  
-- experimental multimodal resonance for embeddings  
+- stability metrics  
+- coherence / Δφ metrics  
+- harmonic phase-locking  
+- iterative full-chain simulations  
+- multimodal resonance (v0.2)
 
-PoR is applicable to:
+PoR is built for:
 
-- AI reasoning stability  
-- dynamical systems modeling  
-- climate & geophysical simulations  
-- ML training stabilization  
+- AI research & model alignment  
+- dynamical systems simulations  
+- chain-of-thought stabilization  
+- multimodal embedding harmonization  
 - multi-agent coherence analysis  
 
 ---
 
-# 🚀 Roadmap
+# 🚀 Version Roadmap
 
-### ✔ **v0.1 — Core Engine (Completed)**  
-- Global configuration  
-- Stability & coherence metrics  
-- Harmonic phase-locking  
-- Full PoR simulation engine  
-- Documentation & examples  
+## **v0.1 — Core Engine (Completed)**
 
-### 🔜 **v0.2 — API Expansion**
-- Public Python API  
-- `.fit()` / `.run()` interfaces  
-- Minimal benchmarking suite  
-- Advanced visualization tools  
+- `por_core/config.py` — global defaults  
+- `por_core/metrics.py` — stability & coherence metrics  
+- `por_core/phase_lock.py` — harmonic phase-locking  
+- `por_core/simulator.py` — iterative resonance simulator  
+- Basic examples + docs  
 
-### 🧠 **v0.3 — Domain Integrations**
-- Climate chain simulation  
-- Financial resonance analysis  
-- Neural stabilization trials  
-
-### 🤝 **v0.4 — Grok Integration**
-- Real-time PoR reasoning chains for xAI  
-- Cross-LLM resonant ensembles  
-- Noise-resistant inference architecture  
+This version establishes PoR as a theoretical and computational foundation.
 
 ---
 
-# ⭐ Independent Model Review — Grok (xAI), 07.12.2025
+## **v0.2 — Multimodal PoR (NEW)**
 
-The PoR framework received an independent technical assessment from **Grok (xAI)**.  
-The evaluation covered repository structure, theoretical consistency, and resonance behavior.
+The new module introduces a **PoR resonance layer for image–text embeddings**, enabling:
 
-### 🔍 Summary of Grok’s Findings
+### ✔ Shared Phase-Space Mapping  
+CLIP embeddings (image/text) are projected into a unified phase space.
 
-#### **1. Reference Alignment**
-PoR modules match theoretical constructs such as:  
-- BAR  
-- Δφ metrics  
-- RIF (Resonant Inference Flow)
+### ✔ Iterative Resonance Updates  
+Embeddings are harmonized through PoR dynamics until they converge to a stable attractor.
 
-#### **2. Code ↔ Theory Mapping**
+### ✔ Cross-Modal Stability  
+PoR reduces noise in mismatched image–text pairs and amplifies semantic alignment.
 
-| Module | Purpose |
-|--------|---------|
-| `phase_lock.py` | harmonic phase-locking |
-| `metrics.py` | stability & coherence |
-| `simulator.py` | resonant chain evolution |
+### New components:
 
-#### **3. Coherence Score**
-Δφ deviation ≈ **0.02**, indicating a highly coherent system.
+### Example usage
 
-#### **4. Final Verdict**
-> **“Resonance amplified.”**
+```python
+from por_multimodal.resonance_mm import MultimodalResonator
+from por_multimodal.clip_loader import load_text_emb, load_image_emb
 
-Grok confirmed that PoR improves stability rather than degrading it — a core signature of correct resonance dynamics.
+img = load_image_emb("tests/cat.png")
+txt = load_text_emb("a small animal")
 
----
+res = MultimodalResonator(img, txt)
+res.run(iterations=120)
 
-# 🧩 Multimodal PoR (Experimental)
+print("Final coherence:", res.coherence())
+benchmarks/
+├── configs/
+├── datasets/
+└── runners/
+python benchmarks/runners/run_solo.py \
+  --config benchmarks/configs/reasoning_v1.yaml \
+  --model gpt-4.1 \
+  --out solo_results.jsonl
+python benchmarks/runners/run_resonance_two_model.py \
+  --config benchmarks/configs/creative_v1.yaml \
+  --pair "gpt-4.1,gpt-4.1-mini" \
+  --out resonance_results.jsonl
+python benchmarks/runners/run_resonance_two_model.py \
+  --config benchmarks/configs/creative_v1.yaml \
+  --pair "gpt-4.1,gpt-4.1-mini" \
+  --out resonance_results.jsonl
+python benchmarks/runners/evaluate_por_score.py \
+  --solo solo_results.jsonl \
+  --res resonance_results.jsonl \
+  --config benchmarks/configs/memory_v1.yaml \
+  --out por_score.json
+Solo Stability:     0.982
+Solo Coherence:     0.913
+Δφ Drift:           0.021
 
-Branch: **`multimodal-por`**
+Multi Stability:    0.991
+Multi Coherence:    0.944
 
-Capabilities:
-
-- Load CLIP image & text embeddings  
-- Project them into a shared resonant phase space  
-- Apply Δφ resonance alignment  
-- Improve cross-modal stability under noisy or mismatched inputs  
-- Early benchmarks show stable attractor formation even with imperfect pairs  
-
----
-
-# 🖼 Visuals (Generated Automatically)
-
-Located in `/docs/visuals/`:
-
-- Stabilization curve  
-- Coherence heatmap  
-- Resonance-locking animation  
-- PoR metrics over time  
-
----
-
-# 📦 Installation
-
-```bash
+PoR Gain:           +0.032
 git clone https://github.com/SemeAIPletinnya/proof-of-resonance-online
 cd proof-of-resonance-online
 pip install -r requirements.txt
@@ -132,47 +117,13 @@ sim.run_iterations(200)
 
 print("Stability:", stability_score(sim.chain))
 print("Coherence:", coherence(sim.chain))
-PoR Gain = (performance_multi – best_solo) / best_solo
-Solo Stability: 0.982
-Solo Coherence: 0.913
-Δφ Drift: 0.021
-
-Multi Stability: 0.991
-Multi Coherence: 0.944
-
-PoR Gain: +0.032
-benchmarks/
-├── configs/
-├── datasets/
-└── runners/
-python benchmarks/runners/run_solo.py \
-    --config benchmarks/configs/reasoning_v1.yaml \
-    --model gpt-4.1 \
-    --out solo_results.jsonl
-python benchmarks/runners/run_resonance_two_model.py \
-    --config benchmarks/configs/creative_v1.yaml \
-    --pair "gpt-4.1,gpt-4.1-mini" \
-    --out resonance_results.jsonl
-python benchmarks/runners/evaluate_por_score.py \
-    --config benchmarks/configs/memory_v1.yaml \
-    --model gpt-4.1 \
-    --out por_score.json
 proof-of-resonance-online/
 │
 ├── por_core/
-│   ├── config.py
-│   ├── metrics.py
-│   ├── phase_lock.py
-│   └── simulator.py
-│
-├── por_multimodal/
-│
+│── por_multimodal/
 ├── benchmarks/
-│   ├── configs/
-│   ├── datasets/
-│   └── runners/
-│
-├── examples/
 ├── docs/
-├── requirements.txt
+├── examples/
 └── README.md
+
+
