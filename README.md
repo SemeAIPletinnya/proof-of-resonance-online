@@ -119,30 +119,30 @@ print("Stability:", stability_score(sim.chain))
 print("Coherence:", coherence(sim.chain))
 proof-of-resonance-online/
 │
-├── por_core/               
-│   ├── config.py
-│   ├── metrics.py
-│   ├── phase_lock.py
-│   └── simulator.py
+├── por_core/                                # Core PoR computational engine
+│   ├── config.py                             # Global simulation and model parameters
+│   ├── metrics.py                            # Stability, coherence, drift, PoR scoring
+│   ├── phase_lock.py                         # Resonance & synchronization dynamics
+│   └── simulator.py                          # Iterative PoR simulator (single-model)
 │
-├── por_multimodal/          (🔥)
-│   ├── clip_loader.py
-│   ├── resonance_mm.py
-│   └── experiments/test_pairs.py
+├── por_multimodal/                           # Multimodal PoR module (text + image)
+│   ├── clip_loader.py                        # CLIP encoder wrapper for embeddings
+│   ├── resonance_mm.py                       # Multimodal resonance computation
+│   └── experiments/
+│       └── test_pairs.py                     # Evaluation pairs & test scenarios
 │
-├── benchmarks/               system checking PoR
-│   ├── configs/
-│   ├── datasets/
-│   └── runners/
+├── benchmarks/                               # Benchmark suite for PoR evaluation
+│   ├── configs/                              # YAML configs for reproducible runs
+│   ├── datasets/                             # Input datasets for PoR tasks
+│   └── runners/                              # Executable benchmarking pipelines
 │
-├── docs/
-│   ├── roadmap.md
-│   ├── theory_overview.md
-│   └── visuals/
+├── docs/                                     # Documentation & research materials
+│   ├── roadmap.md                            # Development roadmap and milestones
+│   ├── theory_overview.md                    # Mathematical & conceptual foundations
+│   └── visuals/                              # Auto-generated PoR plots & GIFs
 │
-├── examples/
-├── requirements.txt
-└── README.md
-
-
+├── examples/                                 # Minimal runnable tutorials and demos
+│
+├── requirements.txt                          # Dependencies (Python 3.10+)
+└── README.md                                 # Framework overview & quick start
 
