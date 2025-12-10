@@ -145,4 +145,20 @@ proof-of-resonance-online/
 │
 ├── requirements.txt                          # Dependencies (Python 3.10+)
 └── README.md                                 # Framework overview & quick start
+---
+
+<p align="center">
+  <img src="docs/visuals/por_metrics_over_time.png" width="600">
+  <br>
+  <sub><em>Figure: Long-chain PoR stability and coherence convergence.</em></sub>
+</p>
+---
+
+<p align="center">
+  <sub>Created by <strong>Anton Semenenko</strong> · SemeAI</sub>
+  <br>
+  <img src="docs/visuals/resonance_locking.gif" width="420">
+  <br>
+  <sub><em>“Systems that resonate remain stable.”</em></sub>
+</p>
 
