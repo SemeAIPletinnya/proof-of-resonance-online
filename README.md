@@ -145,14 +145,3 @@ proof-of-resonance-online/
 │
 ├── requirements.txt                          # Dependencies (Python 3.10+)
 └── README.md                                 # Framework overview & quick start
-<p align="center">
-  <sub>Created by <strong>Anton Semenenko</strong> · SemeAI</sub>
-  <br><br>
-  <img src="docs/visuals/resonance_locking.gif" width="420" alt="Resonance Locking GIF">
-  <br>
-  <sub><em>“Systems that resonate remain stable.”</em></sub>
-</p>
-
-<hr style="border:0.5px solid #ccc; margin: 40px 0;">
-
-
