@@ -119,11 +119,30 @@ print("Stability:", stability_score(sim.chain))
 print("Coherence:", coherence(sim.chain))
 proof-of-resonance-online/
 │
-├── por_core/
-│── por_multimodal/
-├── benchmarks/
+├── por_core/               
+│   ├── config.py
+│   ├── metrics.py
+│   ├── phase_lock.py
+│   └── simulator.py
+│
+├── por_multimodal/          (🔥)
+│   ├── clip_loader.py
+│   ├── resonance_mm.py
+│   └── experiments/test_pairs.py
+│
+├── benchmarks/               system checking PoR
+│   ├── configs/
+│   ├── datasets/
+│   └── runners/
+│
 ├── docs/
+│   ├── roadmap.md
+│   ├── theory_overview.md
+│   └── visuals/
+│
 ├── examples/
+├── requirements.txt
 └── README.md
+
 
 
