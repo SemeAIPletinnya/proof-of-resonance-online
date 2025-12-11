@@ -1,27 +1,3 @@
-"""
-export_por_repo.py
-Автоматично генерує повний репозиторій Proof-of-Resonance (PoR)
-Структура: README, docs, LaTeX paper, benchmarks, por_core, multimodal, app, CI/CD, templates.
-
-Запуск:
-    python export_por_repo.py
-"""
-
-from pathlib import Path
-
-ROOT = Path("proof-of-resonance-online")
-
-# --------------------------
-# Вміст файлів
-# --------------------------
-
-FILES = {}
-
-# ============================================================
-# README.md
-# ============================================================
-
-FILES["README.md"] = r"""
 # 🔷 Proof-of-Resonance (PoR) Framework  
 *A computational engine for stability, coherence, and harmonic alignment in iterative systems.*
 
