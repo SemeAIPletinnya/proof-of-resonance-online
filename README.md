@@ -1,4 +1,23 @@
-# 🔷 Proof-of-Resonance (PoR) Framework  
+"""
+PoR repo material as pure Python.
+
+Usage:
+    python export_por_files.py
+
+This will create:
+    README.md
+    docs/roadmap.md
+    paper/por_paper.tex
+"""
+
+from pathlib import Path
+
+
+FILES: dict[str, str] = {
+    # =========================
+    #  README.md
+    # =========================
+    "README.md": r"""# 🔷 Proof-of-Resonance (PoR) Framework  
 *A computational engine for stability, coherence, and harmonic alignment in iterative systems.*
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
@@ -35,7 +54,7 @@ PoR is built for:
 
 ---
 
-# 🚀 Version Roadmap
+# 🚀 Version Roadmap (short)
 
 ## **v0.1 — Core Engine (Completed)**
 
@@ -62,8 +81,6 @@ Embeddings are harmonized through PoR dynamics until they converge to a stable a
 ### ✔ Cross-Modal Stability  
 PoR reduces noise in mismatched image–text pairs and amplifies semantic alignment.
 
-### New components:
-
 ### Example usage
 
 ```python
@@ -77,22 +94,16 @@ res = MultimodalResonator(img, txt)
 res.run(iterations=120)
 
 print("Final coherence:", res.coherence())
-benchmarks/
-├── configs/
-├── datasets/
-└── runners/
 python benchmarks/runners/run_solo.py \
   --config benchmarks/configs/reasoning_v1.yaml \
   --model gpt-4.1 \
   --out solo_results.jsonl
+
 python benchmarks/runners/run_resonance_two_model.py \
   --config benchmarks/configs/creative_v1.yaml \
   --pair "gpt-4.1,gpt-4.1-mini" \
   --out resonance_results.jsonl
-python benchmarks/runners/run_resonance_two_model.py \
-  --config benchmarks/configs/creative_v1.yaml \
-  --pair "gpt-4.1,gpt-4.1-mini" \
-  --out resonance_results.jsonl
+
 python benchmarks/runners/evaluate_por_score.py \
   --solo solo_results.jsonl \
   --res resonance_results.jsonl \
@@ -137,7 +148,103 @@ proof-of-resonance-online/
 │   └── runners/                              # Executable benchmarking pipelines
 │
 ├── docs/                                     # Documentation & research materials
-│   ├── roadmap.md                            # Development roadmap and milestones
+│   ├── roadmap.md
+# PoR Framework — Roadmap 🚀
+
+This document outlines the development plan for the Proof-of-Resonance (PoR) framework and its future versions.
+
+---
+
+## ✅ v0.1 — Core Engine (Completed)
+
+- `por_core/config.py` — global defaults  
+- `por_core/metrics.py` — stability & coherence metrics  
+- `por_core/phase_lock.py` — harmonic alignment step  
+- `por_core/simulator.py` — full iterative simulation engine  
+- `examples/` — runnable demos  
+- `docs/` — basic documentation  
+- **Scientific visualizations added (Dec 2025):**  
+  - Stabilization Curve  
+  - Coherence Heatmap  
+  - Resonance Locking (2D/3D/GIF)  
+  - PoR Metrics Over Time  
+
+This version establishes the foundation of PoR as a computational tool.
+
+---
+
+## 🔄 v0.2 — API Expansion (In Progress)
+
+### ✔ Already completed
+- Initial public-facing API through `run_iterations()`  
+- First minimal benchmarking suite  
+- High-quality visualization set  
+- Clean module structure prepared for expansion  
+
+### 🔧 Remaining tasks
+- Add `sim.fit()` and `sim.run()` high-level interfaces  
+- Full module-level documentation  
+- Automatic docstrings  
+- Improved visualization of resonance evolution  
+
+---
+
+## 🔮 v0.3 — Domain Integrations (Planned)
+
+- Climate chain modeling  
+- Financial time-series resonance maps  
+- Neural-signal stabilization experiments  
+- Multi-agent alignment tests (PoR-as-a-metric)  
+
+---
+
+## 🌐 v0.4 — Grok Integration (Early Stage)
+
+### ✔ Foundation already exists
+- PoR engine supports real-time state updates  
+- Early observations show resonance signatures in Grok messages  
+
+### 🔧 To implement
+- Data import module for Grok message streams  
+- Resonance signature comparison across LLMs  
+- Real-time PoR dashboard for reasoning chains  
+- Instability / divergence detection  
+
+---
+
+## 🧪 v0.5 — Experimental Features (Concept Stage)
+
+- Adaptive phase-locking rules  
+- Resonance-based anomaly detection  
+- Energy-like metrics for "harmonic cost"  
+- PoR as a reinforcement-signal candidate  
+
+---
+
+## 🛠 v1.0 — Full Release (Planned)
+
+- Full documentation  
+- Interactive online demo  
+- Stable public API  
+- Performance-optimized engine  
+- Publishing PoR as a scientific framework  
+
+---
+
+## 📊 Overall Progress (Dec 2025)
+
+| Version | Status |
+|--------|--------|
+| v0.1 Core Engine | **100% ✔** |
+| v0.2 API Expansion | **60%** |
+| v0.3 Domain Integrations | **10%** |
+| v0.4 Grok Integration | **30%** |
+| v0.5 Experimental Features | **40%** |
+| v1.0 Full Release | **30%** |
+
+---
+
+PoR aims to become a universal tool for analyzing stability, coherence, and harmonic structure in AI systems, physical processes, and dynamic signals.                         # Development roadmap and milestones
 │   ├── theory_overview.md                    # Mathematical & conceptual foundations
 │   └── visuals/                              # Auto-generated PoR plots & GIFs
 │
