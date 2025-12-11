@@ -1,17 +1,27 @@
-import numpy as np
+"""
+por_core/simulator.py
 
-def run_chain(text: str, steps: int = 48, seed: int = 3):
-    """Generate resonant chain of values for this text."""
-    np.random.seed(seed)
+Майбутнє місце для резонансної симуляції між статтями / днями / моделями.
+Поки тут лише інтерфейс, щоб не ламати імпорти.
+"""
 
-    base = np.tanh(len(text) / 100.0)  # semantic baseline
-    chain = [base]
+from typing import List, Dict, Any
 
-    for i in range(1, steps):
-        noise = np.random.normal(0, 0.05)
-        drift = (chain[-1] - base) * -0.15
-        new = chain[-1] + drift + noise
-        chain.append(float(new))
 
-    return np.array(chain)
+def simulate_resonance_over_days(day_por_stats: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """
+    Приймає список PoR-статистик по днях і повертає агрегат:
+    - середній PoR
+    - тренд
+    - можливо, піки резонансу.
+    Зараз — проста середня по overall_por.
+    """
+    if not day_por_stats:
+        return {"mean_overall_por": 0.0, "days": 0}
 
+    overall_vals = [d.get("overall_por", 0.0) for d in day_por_stats]
+    mean_val = sum(overall_vals) / len(overall_vals)
+    return {
+        "mean_overall_por": mean_val,
+        "days": len(day_por_stats),
+    }
