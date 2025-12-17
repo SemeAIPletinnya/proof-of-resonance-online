@@ -168,3 +168,4 @@ This project is released under the MIT License.
  
 
 ---
+See also: docs/ci-analogy.md (CI-style analogy for PoR)
